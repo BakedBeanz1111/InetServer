@@ -9,14 +9,15 @@ class Worker extends Thread {
 
     public void run() {
 
-        PrintStream out = null;
-        BufferedReader in = null;
+        PrintStream out = null; //Output String starts as null
+        BufferedReader in = null; //Input String starts as nul
 
         try {
 
-            in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-            out = new PrintStream(sock.getOutputStream());
+            in = new BufferedReader(new InputStreamReader(sock.getInputStream())); //Information from the socket connection
+            out = new PrintStream(sock.getOutputStream()); //Output Information from the socket connection
 
+            //If the name exists, output the connection information on the Server Client
             try {
 
                 String name;
@@ -25,6 +26,7 @@ class Worker extends Thread {
                 printRemoteAddress(name, out);
             }
 
+            //If it can't communicate, output the error
             catch (IOException x) {
 
                 System.out.println("Server read error");
@@ -33,6 +35,8 @@ class Worker extends Thread {
 
             sock.close();
         }
+
+        //If it can't communicate, output the error
         catch (IOException ioe) {
 
             System.out.println(ioe);
@@ -41,6 +45,7 @@ class Worker extends Thread {
 
     static void printRemoteAddress(String name, PrintStream out){
 
+        //If a sever exists on the query, output this formatted text
         try{
 
             out.println("Looking up " + name + "...");
@@ -56,6 +61,7 @@ class Worker extends Thread {
         }
     }
 
+    //Format IP address as String
     static String toText(byte ip[]) {
 
         StringBuffer result = new StringBuffer();
