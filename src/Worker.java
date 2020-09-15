@@ -1,10 +1,11 @@
 import java.io.*;	//Get the input output libraries
 import java.net.*;	//Get the java networking libraries
 
+//Worker class extends Thread class
 class Worker extends Thread {
 
     Socket sock;
-    Worker (Socket s) {sock = s;}
+    Worker (Socket s) {sock = s;} //I'm not entirely sure what this syntax means yet but I'm reading into it
 
     public void run() {
 

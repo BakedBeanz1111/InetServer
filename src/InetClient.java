@@ -15,8 +15,8 @@ public class InetClient {
         else
             serverName = args[0];
 
-        System.out.println("Clark Elliott's Inet Client, 1.8.\n");
-        System.out.println("Using server: " + serverName + ", Port: 1565");
+        System.out.println("Amad Ali's Inet Client, 1.8.\n");
+        System.out.println("Using server: " + serverName + ", Port: 9001");
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
@@ -66,7 +66,7 @@ public class InetClient {
 
         try {
 
-            sock = new Socket(serverName, 1565);
+            sock = new Socket(serverName, 9001);
             fromServer = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             toServer = new PrintStream(sock.getOutputStream());
 
